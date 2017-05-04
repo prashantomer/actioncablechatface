@@ -19,7 +19,7 @@
         .info
           .title
             %a{:href => "http://scripteden.com/", :target => "_blank"}
-            = current_user.full_name
+            = current_user.full_name rescue "New User"
           .desc Passionate designer
           .desc Curious developer
           .desc Tech geek
