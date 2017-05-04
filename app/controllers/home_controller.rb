@@ -12,6 +12,16 @@ class HomeController < ApplicationController
   	@user_profile = current_user.profile
   end
 
+  def user_edit
+    @profile = current_user.profile
+    if request.put?
+      debugger
+      current_user.update(user_nested_params)
+      flash[:notice] = "Updated Successfully!!!"
+      redirect_to root_path
+    end
+  end
+
   def user_avatar
   	# current_user.profile.remove_picture!
     begin
@@ -21,5 +31,10 @@ class HomeController < ApplicationController
     rescue ActionController::ParameterMissing => e
       render json: {status: false, message: e.message}
     end
+  end
+
+  private
+  def user_nested_params
+    params.require(:user).permit(:email, :user_profile_attributes=>[:_id, :first_name, :last_name, :picture, :cover, :_destroy])
   end
 end

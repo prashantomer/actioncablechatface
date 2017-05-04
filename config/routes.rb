@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   		get   :home
   	end
     member do
+      get   :user_edit
+      put   :user_edit
       get   :user_avatar
       post  :user_avatar      
     end

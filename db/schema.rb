@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(version: 20170421113822) do
 
   create_table "user_profiles", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name", default: "New"
+    t.string   "last_name",  default: "User"
     t.string   "picture"
     t.string   "cover"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["user_id"], name: "index_user_profiles_on_user_id", using: :btree
   end
 
