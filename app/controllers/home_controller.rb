@@ -15,7 +15,6 @@ class HomeController < ApplicationController
   def user_edit
     @profile = current_user.profile
     if request.put?
-      debugger
       current_user.update(user_nested_params)
       flash[:notice] = "Updated Successfully!!!"
       redirect_to root_path
