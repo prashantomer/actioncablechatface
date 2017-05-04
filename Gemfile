@@ -53,3 +53,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'twitter-bootstrap-rails'
+gem "mail"
+gem "haml-rails", "~> 0.9"
+gem 'carrierwave', '~> 1.0'
+gem "nested_form"
+gem 'rails_12factor'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'

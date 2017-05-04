@@ -1,0 +1,27 @@
+.container.col-md-12{:style => "padding:0;"}
+  .row{:style => "margin:0;"}
+    .col-md-12{:style => "padding:0;"}
+      .card.hovercard{:style => "margin:0;"}
+        .cardheader{:style => "background: url(#{current_user.profile.cover.url || "http://www.f-covers.com/cover/grey-floral-facebook-cover-timeline-banner-for-fb.jpg"}); background-size: cover; height: 135px;"}
+        .avatar
+          %img{:alt => "", :src => (current_user.profile.picture.url || "http://cdn1.iconfinder.com/data/icons/circle-outlines-colored/512/Robot_User_Profile_Dummy_Avatar_Person_AI-512.png")}/
+        .bottom
+          .row
+            %a.btn.btn-card.btn-info.btn-twitter.btn-sm{:href => "https://twitter.com/webmaniac"}
+              %i.fa.fa-twitter
+            %a.btn.btn-card.btn-danger.btn-sm{:href => "https://plus.google.com/+ahmshahnuralam", :rel => "publisher"}
+              %i.fa.fa-google-plus
+          .row
+            %a.btn.btn-card.btn-primary.btn-sm{:href => "https://plus.google.com/shahnuralam", :rel => "publisher"}
+              %i.fa.fa-facebook
+            %a.btn.btn-card.btn-primary.btn-sm{:href => "https://plus.google.com/shahnuralam", :rel => "publisher"}
+              %i.fa.fa-linkedin
+        .info
+          .title
+            %a{:href => "http://scripteden.com/", :target => "_blank"}
+            = current_user.full_name
+          .desc Passionate designer
+          .desc Curious developer
+          .desc Tech geek
+=render "pic_cover_modal"
+:javascript

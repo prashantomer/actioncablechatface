@@ -1,0 +1,19 @@
+- flag = JSON.parse(flash.to_json).first
+- if flag
+  .flash-modal-div
+    %button.btn.btn-info.btn-lg#flash_modal{"data-toggle" => "modal", "data-target" => "#myModal", :style => "display:none;"}Open Modal
+    #myModal.modal.fade{:role => "dialog"}
+      .modal-dialog{:style => "padding: 7%;"}
+        .modal-content{:style => "padding: 1% 2% 0px 1%;"}
+          .modal-header{:style => "padding: 0;"}
+            %button.close{:type => "button", "data-dismiss" => "modal"} &times;
+            %p.modal-title{:style => "font-size: 24px;padding-left: 1%;"}
+              #{flag.first.titleize}
+              %div{:style => "font-size: 16px;padding-left: 1%;"} #{flag.last}
+
+    :javascript
+      $(() => {
+        $("button.btn.btn-default")
+        $("button#flash_modal").click()
+        setTimeout(() => {$(".flash-modal-div button.close").click();}, 2000)
+      })

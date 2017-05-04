@@ -1,5 +1,7 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery_nested_form
+//= require twitter/bootstrap
 //= require_tree .
 
 (function() {
@@ -17,3 +19,8 @@
     }
   });
 })();
+
+$(() => {
+  $(".alert.fade.in").css('max-width', '30%').css('float', 'right').css('margin', '2%')
+  setTimeout(() => {$(".alert.fade.in").fadeOut();}, 3000)
+})

@@ -5,5 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :messages
-	has_many :conversations, foreign_key: :sender_id
+	has_many :conversations, foreign_key: :sender_id, dependent: :destroy
+	has_one :user_profile, dependent: :destroy
+
+	after_create :create_user_profile!
+
+	def profile
+		self.user_profile
+	end
+	def full_name
+		self.profile.first_name+" "+self.profile.last_name		
+	end
 end

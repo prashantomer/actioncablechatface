@@ -1,0 +1,24 @@
+%button.btn.btn-info.btn-lg.pic_avatar_model{"data-toggle" => "modal", "data-target" => "#picAvatarModal", :style => "display:none;"} Open Modal
+#picAvatarModal.modal.fade{:role => "dialog"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal"} &times;
+        %h4.modal-title Upload Picture
+      .modal-body
+        = form_for @user_profile, url: user_avatar_home_path(current_user), method: :post, multipart: true, remote: true do |f|
+          = f.file_field :picture
+      .modal-footer
+        %button.btn.btn-default#save_avatar Save
+:javascript
+  $("#save_avatar").click(() => {
+    $("form.edit_user_profile").ajaxForm({
+        url : "#{user_avatar_home_path(current_user)}",
+        type: "POST",
+        dataType : 'json',
+        success : function (response) {
+          $('.card.hovercard .avatar > img').attr('src', response.image)
+          $("#picAvatarModal").modal("hide");
+        }
+    }).submit()
+  })
