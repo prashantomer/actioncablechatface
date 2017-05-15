@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :messages
+  # has_many :messages
 	has_many :conversations, foreign_key: :sender_id, dependent: :destroy
 	has_one :user_profile, dependent: :destroy
 

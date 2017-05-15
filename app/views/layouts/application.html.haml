@@ -34,9 +34,10 @@
             %ul.nav.navbar-nav
               %li= link_to "Link 1", "/path1"
               %li= link_to "Profile", user_edit_home_path(current_user)
-              %li= link_to "Logout", destroy_user_session_path, method: :delete
+              
             %ul.nav.navbar-nav.pull-right
-              %li.login_duration_time.pull-right= link_to "Login @ #{time_ago_in_words(current_user.updated_at)} ago", "#"
+              %li.login_duration_time= link_to "Login @ #{time_ago_in_words(current_user.updated_at)} ago", "#"
+              %li= link_to "Logout", destroy_user_session_path, method: :delete
 
     .container-big
       / .row
