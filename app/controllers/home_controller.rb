@@ -15,6 +15,7 @@ class HomeController < ApplicationController
   def user_edit
     @profile = current_user.profile
     if request.put?
+      debugger
       current_user.update(user_nested_params)
       flash[:notice] = "Updated Successfully!!!"
       redirect_to root_path
@@ -34,6 +35,6 @@ class HomeController < ApplicationController
 
   private
   def user_nested_params
-    params.require(:user).permit(:email, :user_profile_attributes=>[:_id, :first_name, :last_name, :picture, :cover, :_destroy])
+    params.require(:user).permit(:email, :user_profile_attributes=>[:id, :first_name, :last_name, :picture, :cover, :_destroy])
   end
 end
